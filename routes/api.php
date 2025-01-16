@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExelController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ Route::get('/getdata', [AdminController::class, 'getQuestionsWithAnswers']);
 Route::put('/edit/{id}', [AdminController::class, 'updateQuestionAndAnswer']);
 
 Route::delete('/questions/{id}', [AdminController::class, 'deleteQuestionAndAnswer']);
+
+Route::get('/import', [ExelController::class, 'getImportedData']);
+Route::post('/imports', [ExelController::class, 'importExcel']);
 
 //Route::get('/user', function (Request $request) {
 //    return $request->user();
