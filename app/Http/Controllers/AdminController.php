@@ -38,8 +38,7 @@ class AdminController extends Controller
     public function getQuestionsWithAnswers()
     {
         try {
-            // Fetch all questions with their related answers
-            $questions = Question::with('answers')->get();
+            $questions = Question::with('answers')->orderBy('created_at', 'desc')->get();
 
             return response()->json([
                 'message' => 'Data pertanyaan dan jawaban berhasil diambil',
